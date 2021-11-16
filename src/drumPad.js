@@ -1,13 +1,17 @@
+import { soundArrayOne } from './soundcode';
+
 function DrumButton(props) {
+    const nameArray = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"]
     return (
-      <button className="myButton">{props.button}</button>  
+      <button className="myButton"  onClick={props.onClick}>{nameArray[props.button]}</button>  
     );
 }
 
 function DrumPad(props) {
+    
     const renderButtons = (i) =>{
         return (<div>
-            <DrumButton button={i}/></div>
+            <DrumButton button={i} onClick={() => props.onClick(i)}/></div>
         );
     }
     const buttonGrid = [];

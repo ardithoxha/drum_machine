@@ -1,6 +1,6 @@
 import { createStore } from "redux";
 import reducer from './reducer';
-import { switchBanks, switchPower } from "./actionCreators";
+import { switchBanks, switchPower,pressPad } from "./actionCreators";
 
 export const store = createStore(reducer);
 
@@ -11,6 +11,8 @@ export const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => {
     return {
         switchBanks: (firstBank) => {dispatch(switchBanks(firstBank))},
-        switchPower: (isOn) => {dispatch(switchPower(isOn))}
-        }    
+        switchPower: (isOn) => {dispatch(switchPower(isOn))},
+        pressPad: (i) => {dispatch(pressPad(i))}
+        }
+            
 }

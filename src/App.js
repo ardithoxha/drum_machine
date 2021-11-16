@@ -8,14 +8,14 @@ import PowerButton from './powerButton';
 import VolumeSlider from './volumeSlider'
 
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <PowerButton />
       <div className="middleContainer">
         <div className="display">Display</div> 
         <div className="drumPadContainer">
-          <DrumPad />
+          <DrumPad onClick={(i) => props.pressPad(i)} />
         </div>
         <div className="volumeContainer">
           <VolumeSlider />
