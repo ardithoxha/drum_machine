@@ -19,10 +19,21 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.display {
+.displayContainer {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: 20vh;
+  width: 100%;
+  
+}
+
+.display {
+  text-align: center;
+  background-color: lightgray;
+  width: 170px;
+  height: 27px;
+  font-weight: bold;
 }
 .drumPadContainer {
   display: flex;

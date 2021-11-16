@@ -21,6 +21,7 @@ export const switchPower = (isOn) => {
 export const pressPad = (i) => {
     return {
         type: PADPRESS,
+        id: soundArrayOne[i].id,
         url: soundArrayOne[i].url
     }
 }

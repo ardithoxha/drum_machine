@@ -5,7 +5,8 @@ import { store,mapStateToProps, mapDispatchToProps } from './redux/store';
 import DrumPad from './drumPad';
 import BankButton from './bankButton';
 import PowerButton from './powerButton';
-import VolumeSlider from './volumeSlider'
+import VolumeSlider from './volumeSlider';
+import Display from './display';
 
 
 function App(props) {
@@ -13,7 +14,7 @@ function App(props) {
     <div className="App">
       <PowerButton />
       <div className="middleContainer">
-        <div className="display">Display</div> 
+        <Display display={props.id}/>
         <div className="drumPadContainer">
           <DrumPad onClick={(i) => props.pressPad(i)} />
         </div>
