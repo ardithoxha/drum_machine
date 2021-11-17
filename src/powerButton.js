@@ -1,6 +1,12 @@
-export function PowerButton(props) {
+import { useDispatch } from "react-redux";
+import { switchPower } from "./redux/actionCreators";
+
+export function PowerButton() {
+    const dispatch = useDispatch();
+    const action = switchPower();
+    
     return (<div className="switches">
-        <button>SwitchPower</button>
+        <button onClick={() => dispatch(action)}>SwitchPower</button>
     </div>);
 }
 

@@ -1,18 +1,47 @@
-import { playSound } from "../soundcode";
+import { playSound, soundArrayOne, soundArrayTwo } from "../soundcode";
+
 
 const defaultState = {
     firstBank: true,
     isOn: true,
-    id: "Display"
+    id: ""
 }
 
 const reducer = (state = defaultState, action) => {
     switch(action.type) {
         case "PADPRESS":
-            playSound(action.url);
-            return {id: action.id};
-        case "SWITCHBANKS":
-            return state;
+            
+            if(state.isOn) {
+                const arr = state.firstBank ? soundArrayOne : soundArrayTwo;
+                const soundDetail = arr.find(s => s.letter == action.letter);
+                playSound(soundDetail.url);
+            
+                return {
+                    firstBank: state.firstBank,
+                    isOn: state.isOn, 
+                    id: soundDetail.id
+                };
+            } else {
+                return {
+                    firstBank: state.firstBank,
+                    isOn: state.isOn, 
+                    id: "Power is turned off"
+                };
+            }
+        case "POWERSWITCH":
+            
+            return {
+                firstBank: state.firstBank,
+                isOn: !state.isOn, 
+                id: (!state.isOn ? "Power is on": "Power is Off")
+            };
+        case "BANKSWITCH":
+            
+            return {
+                firstBank: !state.firstBank,
+                isOn: state.isOn, 
+                id: "Switched Banks"
+            };
         default:
             return state;
     }

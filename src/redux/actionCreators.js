@@ -4,24 +4,22 @@ const BANKSWITCH = "BANKSWITCH";
 const POWERSWITCH = "POWERSWITCH";
 const PADPRESS = "PADPRESS";
 
-export const switchBanks = (firstBank) => {
+export const switchBanks = () => {
     return {
         type: BANKSWITCH,
-        firstBank: firstBank
     }
 }
 
 export const switchPower = (isOn) => {
     return {
         type: POWERSWITCH,
-        isOn: isOn
+        isOn: !isOn
     }
 }
 
-export const pressPad = (i) => {
+export const pressPad = (letter) => {
     return {
         type: PADPRESS,
-        id: soundArrayOne[i].id,
-        url: soundArrayOne[i].url
+        letter: letter
     }
 }

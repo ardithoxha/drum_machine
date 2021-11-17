@@ -1,6 +1,12 @@
-function BankButton(props) {
+import { useDispatch } from "react-redux";
+import { switchBanks } from "./redux/actionCreators";
+
+function BankButton() {
+    const dispatch = useDispatch();
+    const changeBanks = () => dispatch(switchBanks());
+    
     return (<div className="switches">
-        <button>SwitchBank</button>
+        <button onClick={changeBanks}>SwitchBank</button>
     </div>);
 }
 

@@ -1,22 +1,34 @@
 import './App.css';
-import {Provider, connect } from "react-redux"
+import { Provider, connect, useDispatch } from "react-redux"
 import React from 'react';
-import { store,mapStateToProps, mapDispatchToProps } from './redux/store';
+import { store } from './redux/store';
 import DrumPad from './drumPad';
 import BankButton from './bankButton';
 import PowerButton from './powerButton';
 import VolumeSlider from './volumeSlider';
 import Display from './display';
+import { pressPad } from "./redux/actionCreators";
+import { nameArray } from './soundcode';
 
+function App() {
+  // const dispatch = useDispatch();
+  // const keyPress = event => {
+  //   const key = event.key && event.key.toUpperCase();
+  //   const letter = key && nameArray.includes(key) ? key : null;
+  //   console.log(letter);
+  //   if (letter) {
+  //     // dispatch(pressPad(letter))
+  //   }
+  // }
 
-function App(props) {
+  // document.getElementById("root").addEventListener("keydown", keyPress);
   return (
     <div className="App">
       <PowerButton />
       <div className="middleContainer">
-        <Display display={props.id}/>
+        <Display />
         <div className="drumPadContainer">
-          <DrumPad onClick={(i) => props.pressPad(i)} />
+          <DrumPad />
         </div>
         <div className="volumeContainer">
           <VolumeSlider />
@@ -27,13 +39,11 @@ function App(props) {
   );
 }
 
-const Container = connect(mapStateToProps,mapDispatchToProps)(App)
-
 class AppWrapper extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Container />
+        <App />
       </Provider>
     );
   }
