@@ -1,5 +1,5 @@
 import './App.css';
-import { Provider, connect, useDispatch } from "react-redux"
+import { Provider,useDispatch } from "react-redux"
 import React from 'react';
 import { store } from './redux/store';
 import DrumPad from './drumPad';
@@ -22,6 +22,7 @@ function App() {
   // }
 
   // document.getElementById("root").addEventListener("keydown", keyPress);
+  
   return (
     <div className="App">
       <PowerButton />

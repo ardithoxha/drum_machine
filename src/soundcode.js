@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 export const soundArrayOne = [
     {id: 'Heater 1', url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', letter: "Q"},
     {id: "Heater 2", url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3', letter: "W"},
@@ -22,9 +24,10 @@ export const soundArrayTwo = [
     {id: "Snare", url: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3', letter: "C"}
 ]
 
-export function playSound(url) {
+export function playSound(url,volume) {
+    
     let audio = new Audio(url);
-    // audio.volume = document.getElementById("myRange").value*0.01;
+    audio.volume = volume*0.01;
     audio.play();
 }
 

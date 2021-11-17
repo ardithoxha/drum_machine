@@ -74,3 +74,11 @@ body {
   height: 100px;
   border-radius: 50%;
 }
+
+.myRange {
+  width: 280px;
+}
+
+.volumeContainer {
+  text-align: center;
+}

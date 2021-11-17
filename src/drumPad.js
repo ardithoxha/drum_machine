@@ -11,7 +11,7 @@ function DrumButton(props) {
         <button
             className="myButton"
             onClick={playPad}
-            >
+        >
             {props.letter}
         </button>
     );
