@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 
 export const soundArrayOne = [
     {id: 'Heater 1', url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', letter: "Q"},

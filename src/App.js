@@ -10,20 +10,25 @@ import Display from './display';
 import { pressPad } from "./redux/actionCreators";
 import { nameArray } from './soundcode';
 
-function App() {
-  // const dispatch = useDispatch();
-  // const keyPress = event => {
-  //   const key = event.key && event.key.toUpperCase();
-  //   const letter = key && nameArray.includes(key) ? key : null;
-  //   console.log(letter);
-  //   if (letter) {
-  //     // dispatch(pressPad(letter))
-  //   }
-  // }
 
-  // document.getElementById("root").addEventListener("keydown", keyPress);
+
+function App() {
+  const dispatch = useDispatch();
+  const keyPress = (event) => {
+    event.preventDefault();
+    const key = event.key && event.key.toUpperCase();
+    const letter = key && nameArray.includes(key) ? key : null;
+    
+    if (letter) {
+      dispatch(pressPad(letter))
+    }
+  }
+
+
+  document.addEventListener("keyup", keyPress);
   
   return (
+    <React.StrictMode>
     <div className="App">
       <PowerButton />
       <div className="middleContainer">
@@ -37,15 +42,20 @@ function App() {
       </div>
       <BankButton />
     </div>
+    </React.StrictMode>
   );
 }
 
 class AppWrapper extends React.Component {
+  
   render() {
+    
     return (
+      
       <Provider store={store}>
         <App />
       </Provider>
+      
     );
   }
 }

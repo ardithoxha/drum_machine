@@ -3,18 +3,23 @@
   /* outline: 1px black solid; */
 }
 body {
-  margin: 0;
+  margin: 0; 
   padding: 0;
 }
 .App {
  display: grid;
- grid-template-columns: 25vw 50vw 25vw;
- width: 100vw;
+ grid-template-columns: 25% 50% 25%;
+ min-width: 600px;
+ width: 50vw;
+ min-height: 600px;
  height: 100vh;
+ overflow-y: auto;
+ border: 1px solid red;
+ margin: 0 auto;
 }
 
 .middleContainer {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +28,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20vh;
+  height: 20%;
   width: 100%;
   
 }
@@ -40,12 +45,12 @@ body {
   width: 100%;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: 60%;
 }
 
 .volumeContainer {
   padding-top: 20px;
-  height: 20vh;
+  height: 20%;
 }
 
 .drumPad {
@@ -64,7 +69,7 @@ body {
 .switches {
   display: flex;
   justify-content: center;
-  margin-top: 4vh;
+  margin-top: 4%;
   height: 100px;
   
 }

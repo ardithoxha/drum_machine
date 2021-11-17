@@ -5,7 +5,9 @@ import { nameArray } from "./soundcode";
 function DrumButton(props) {
 
     const dispatch = useDispatch();
+    
     const playPad = () => dispatch(pressPad(props.letter));
+    
     
     return (
         <button
@@ -29,6 +31,8 @@ function DrumPad() {
     for (let i = 0; i < 9; i++) {
         buttonGrid.push(renderButtons(i));
     }
+
+    
     return (
         <div className="drumPad">
             {buttonGrid}

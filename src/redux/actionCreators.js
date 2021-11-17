@@ -1,9 +1,16 @@
-import { soundArrayOne, soundArrayTwo } from "../soundcode";
 
 const BANKSWITCH = "BANKSWITCH";
 const POWERSWITCH = "POWERSWITCH";
 const PADPRESS = "PADPRESS";
 const VOLUME = "VOLUME";
+const LETTER = "LETTER"
+
+export const updateLetter = (letter) => {
+    return {
+        type: LETTER,
+        letter
+    }
+}
 
 export const switchBanks = () => {
     return {
@@ -21,7 +28,7 @@ export const switchPower = (isOn) => {
 export const pressPad = (letter) => {
     return {
         type: PADPRESS,
-        letter: letter
+        letter
     }
 }
 

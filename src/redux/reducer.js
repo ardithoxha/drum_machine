@@ -5,16 +5,25 @@ const defaultState = {
     firstBank: true,
     isOn: true,
     id: "",
-    volume: 100
+    volume: 100,
+    
 }
 
 const reducer = (state = defaultState, action) => {
     switch(action.type) {
+        case "LETTER":
+            return {
+                
+                firstBank: state.firstBank,
+                isOn: state.isOn,
+                id: state.id,
+                volume: state.volume
+            };
         case "PADPRESS":
             
             if(state.isOn) {
                 const arr = state.firstBank ? soundArrayOne : soundArrayTwo;
-                const soundDetail = arr.find(s => s.letter == action.letter);
+                const soundDetail = arr.find(s => s.letter === action.letter);
 
                 playSound(soundDetail.url,state.volume);
             
